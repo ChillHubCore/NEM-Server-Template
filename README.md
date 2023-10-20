@@ -1,2 +1,1 @@
-# e-commerce-nodejs
- Server For E-Commerce Next JS
+# Node JS / Express JS / MongoDB Server Template

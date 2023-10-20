@@ -19,11 +19,7 @@ userRouter.post(
         res.send({
           name: user.name,
           email: user.email,
-          phone: user.phone,
           isAdmin: user.isAdmin,
-          isCreator: user.isCreator,
-          balance: user.balance,
-          watchList: user.watchList,
           token: generateToken(user),
         });
         return;
@@ -39,18 +35,13 @@ userRouter.post(
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,
-      phone: req.body.phone,
       password: bcrypt.hashSync(req.body.password),
     });
     const user = await newUser.save();
     res.send({
       name: user.name,
       email: user.email,
-      phone: user.phone,
       isAdmin: user.isAdmin,
-      isCreator: user.isCreator,
-      balance: user.balance,
-      watchList: user.watchList,
       token: generateToken(user),
     });
   })

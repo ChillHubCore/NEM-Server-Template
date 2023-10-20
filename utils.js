@@ -7,7 +7,6 @@ export const generateToken = (user) => {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      isCreator: user.isCreator,
     },
     process.env.JWT_SECRET,
     {
