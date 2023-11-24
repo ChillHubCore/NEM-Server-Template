@@ -1,5 +1,14 @@
 import jwt from "jsonwebtoken";
 
+/**
+ * Generates a token for the given user.
+ * @param {Object} user - The user object.
+ * @param {string} user._id - The user's ID.
+ * @param {string} user.name - The user's name.
+ * @param {string} user.email - The user's email.
+ * @param {boolean} user.isAdmin - Indicates if the user is an admin.
+ * @returns {string} - The generated token.
+ */
 export const generateToken = (user) => {
   return jwt.sign(
     {
@@ -15,6 +24,12 @@ export const generateToken = (user) => {
   );
 };
 
+/**
+ * Middleware function to check if the request is authenticated.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Function} next - The next middleware function.
+ */
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
   if (authorization) {
@@ -32,6 +47,13 @@ export const isAuth = (req, res, next) => {
   }
 };
 
+/**
+ * Checks if the user is an admin.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Function} next - The next middleware function.
+ * @returns {void}
+ */
 export const isAdmin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
