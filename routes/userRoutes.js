@@ -26,7 +26,6 @@ userRouter.post(
       if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
           name: user.name,
-          email: user.email,
           isAdmin: user.isAdmin,
           token: generateToken(user),
         });
@@ -51,12 +50,12 @@ userRouter.post(
     const newUser = new User({
       name: req.body.name,
       email: req.body.email,
+      phone: req.body.phone,
       password: bcrypt.hashSync(req.body.password),
     });
     const user = await newUser.save();
     res.send({
       name: user.name,
-      email: user.email,
       isAdmin: user.isAdmin,
       token: generateToken(user),
     });
