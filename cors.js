@@ -3,8 +3,12 @@ import dotenv from "dotenv";
 import cors from "cors";
 dotenv.config();
 // Allow a specific address to access the server (replace with the actual addresses)
-const allowedOrigin = [`${process.env.allowedOrigin}`];
-console.log(process.env.allowedOrigin);
+console.log("Running CORS Middleware...");
+const allowedOrigin = [
+  `${process.env.allowedOrigin}`,
+  `${process.env.serverOrigin}`,
+];
+console.log("Serving For " + allowedOrigin);
 /**
  * Configuration options for CORS (Cross-Origin Resource Sharing).
  * @typedef {Object} CorsOptions

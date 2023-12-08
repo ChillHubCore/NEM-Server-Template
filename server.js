@@ -9,6 +9,8 @@ import dotenv from "dotenv";
 import corsMiddleware from "./cors.js";
 import userRouter from "./routes/userRoutes.js";
 
+console.log("Running " + process.env.SERVER_NAME);
+
 dotenv.config();
 
 /**
@@ -54,5 +56,5 @@ const port = process.env.PORT || 5000;
  * @returns {void}
  */
 app.listen(port, () => {
-  console.log(`serve at http://localhost:${port}`);
+  console.log(`REST API Serving at ${process.env.URL}:${port}`);
 });
