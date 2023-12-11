@@ -1,7 +1,7 @@
 {
   "name": "nem-server-template",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Node JS / Express / MongoDB & Mongoose Server Template",
   "main": "index.js",
   "scripts": {
