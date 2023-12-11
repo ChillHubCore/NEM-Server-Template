@@ -6,8 +6,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import corsMiddleware from "./cors.js";
+import corsMiddleware from "./middlewares/cors.js";
 import userRouter from "./routes/userRoutes.js";
+import { authenticateMiddleware } from "./middlewares/apiKey.js";
 
 console.log("Running " + process.env.SERVER_NAME);
 
@@ -30,6 +31,7 @@ mongoose
 const app = express();
 
 app.use(corsMiddleware);
+app.use(authenticateMiddleware); // Based on Your Need choose cors or authenticateMiddleware (apiKey & apiSecret) or use both if needed!
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -48,7 +50,25 @@ app.get("/check", (req, res) => {
 
 app.use("/users", userRouter);
 
-const port = process.env.PORT || 5000;
+const fallbackPort = 5000;
+
+/**
+ * The port number for the server.
+ * @type {number}
+ */
+const port = process.env.PORT || fallbackPort;
+
+!process.env.PORT &&
+  console.log(
+    `Seems Like You Havent Set The PORT in .env file going for the fallback port : ${fallbackPort}!`
+  );
+
+parseInt(port) == 0 &&
+  console.log(
+    "Port is 0 Maybe You are In Test Envoirment Consider Changing the Port For Production!"
+  );
+
+console.log(`Running on port ${port}`);
 
 /**
  * Starts the server and listens for incoming requests on the specified port.
