@@ -24,7 +24,7 @@ userRouter.post(
 
     if (user) {
       if (bcrypt.compareSync(req.body.password, user.password)) {
-        res.send({
+        res.status(201).send({
           name: user.name,
           isAdmin: user.isAdmin,
           token: generateToken(user),
@@ -54,7 +54,7 @@ userRouter.post(
       password: bcrypt.hashSync(req.body.password),
     });
     const user = await newUser.save();
-    res.send({
+    res.status(201).send({
       name: user.name,
       isAdmin: user.isAdmin,
       token: generateToken(user),
