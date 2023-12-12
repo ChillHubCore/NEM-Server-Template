@@ -1,3 +1,5 @@
+import process from "process";
+
 /**
  * Middleware function to authenticate API requests using apiKey and apiSecret.
  * @param {Object} req - The request object.

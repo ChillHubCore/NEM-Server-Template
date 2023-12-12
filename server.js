@@ -9,6 +9,7 @@ import dotenv from "dotenv";
 import corsMiddleware from "./middlewares/cors.js";
 import userRouter from "./routes/userRoutes.js";
 import { authenticateMiddleware } from "./middlewares/apiKey.js";
+import process from "process";
 
 console.log("Running " + process.env.SERVER_NAME);
 

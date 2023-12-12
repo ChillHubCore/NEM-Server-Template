@@ -1,6 +1,8 @@
 // cors.js
 import dotenv from "dotenv";
 import cors from "cors";
+import process from "process";
+
 dotenv.config();
 // Allow a specific address to access the server (replace with the actual addresses)
 console.log("Running CORS Middleware...");

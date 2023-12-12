@@ -4,6 +4,7 @@ import expressAsyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import { generateToken, isAuth } from "../utils.js";
 import dotenv from "dotenv";
+import process from "process";
 
 dotenv.config();
 

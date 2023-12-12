@@ -1,6 +1,7 @@
 import request from "supertest";
 import app from "../server.js";
 import dotenv from "dotenv";
+import process from "process";
 
 dotenv.config(); // Load environment variables from .env file
 const seedApiKey = process.env.SEED_API_KEY;

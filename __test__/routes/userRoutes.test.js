@@ -3,6 +3,7 @@ import app from "../../server.js";
 import dotenv from "dotenv";
 import User from "../../models/userModel.js";
 import bcrypt from "bcryptjs";
+import process from "process";
 
 dotenv.config(); // Load environment variables from .env file
 const seedApiKey = process.env.SEED_API_KEY;
