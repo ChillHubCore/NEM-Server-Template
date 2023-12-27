@@ -1,3 +1,9 @@
+/**
+ * ESLint configuration file for the project.
+ *
+ * @module .eslintrc.cjs
+ * @see {@link https://eslint.org/docs/user-guide/configuring|ESLint Configuration}
+ */
 module.exports = {
   plugins: ["jest", "security"],
   extends: [
