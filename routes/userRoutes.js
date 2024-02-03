@@ -34,7 +34,7 @@ userRouter.post(
       }
     }
     res.status(401).send({ message: "Email or Password is Wrong!" });
-  })
+  }),
 );
 
 userRouter.post(
@@ -60,7 +60,7 @@ userRouter.post(
       isAdmin: user.isAdmin,
       token: generateToken(user),
     });
-  })
+  }),
 );
 
 userRouter.delete(
@@ -84,7 +84,7 @@ userRouter.delete(
     } else {
       res.status(404).send({ message: "User Not Found" });
     }
-  })
+  }),
 );
 
 export default userRouter;
