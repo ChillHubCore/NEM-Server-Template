@@ -63,12 +63,12 @@ const port = process.env.PORT || fallbackPort;
 
 !process.env.PORT &&
   console.log(
-    `Seems Like You Havent Set The PORT in .env file going for the fallback port : ${fallbackPort}!`,
+    `Seems Like You Havent Set The PORT in .env file going for the fallback port : ${fallbackPort}!`
   );
 
 parseInt(port) == 0 &&
   console.log(
-    "Port is 0 Maybe You are In Test Envoirment Consider Changing the Port For Production!",
+    "Port is 0 Maybe You are In Test Envoirment Consider Changing the Port For Production!"
   );
 
 console.log(`Running on port ${port}`);
@@ -79,7 +79,7 @@ console.log(`Running on port ${port}`);
  * @returns {void}
  */
 app.listen(port, () => {
-  console.log(`REST API Serving at ${process.env.URL}:${port}`);
+  console.log(`API Serving at ${process.env.URL}:${port}`);
 });
 
 export default app;

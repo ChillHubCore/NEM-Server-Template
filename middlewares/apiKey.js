@@ -8,9 +8,8 @@ import process from "process";
  * @returns {void}
  */
 
-console.log("running apiKey and apiSecret middleware...");
-
 export const authenticateMiddleware = async (req, res, next) => {
+  console.log("running apiKey and apiSecret middleware...");
   const apiKey = req.headers.apikey;
   const apiSecret = req.headers.apisecret;
   const seedApiKey = process.env.SEED_API_KEY;
